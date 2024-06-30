@@ -211,11 +211,6 @@ export default function Autocomplete<ItemT>(
     setInputValue(v);
     onChangeText?.(v);
   };
-  const blur = (_: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    // console.log('blur', e);
-    // setVisible(false);
-    setFocused(false);
-  };
   const focus = (_: NativeSyntheticEvent<TextInputFocusEventData>) => {
     setVisible(true);
     setFocused(true);
@@ -440,7 +435,6 @@ export default function Autocomplete<ItemT>(
       >
         <TextInput
           ref={inputRef}
-          onBlur={blur}
           onFocus={focus}
           blurOnSubmit={false}
           value={hasMultipleValue || inputValue.length > 0 ? ' ' : ''}
